@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                         Int          @id @default(autoincrement())
+  name                       String
+  email                      String       @unique
+  age                        Int
+  height                     Int
+  weight                     Int
+  sport                      String
+  levelOfProficiencyInSports String
+  injuryHistory              String?
+  createdAt                  DateTime     @default(now())
+
+  injuries   Injury[]
+  dietPlans  DietPlan[]
+}
+
+model Injury {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  name         String
+  bodyPart     String
+  severity     String
+  isActive     Boolean  @default(true)
+  aiPrecaution String?
+  aiRecovery   String?
+  aiCure       String?
+  createdAt    DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Exercise {
+  id          Int      @id @default(autoincrement())
+  name        String
+  sports      String[]
+  bodyPart    String
+  description String
+}
+
+model Warmup {
+  id          Int        @id @default(autoincrement())
+  name        String
+  sports      String[]
+  type        WarmupType
+  description String
+}
+
+enum WarmupType {
+  PRE
+  POST
+}
+
+model Rule {
+  id          Int      @id @default(autoincrement())
+  sport       String
+  title       String
+  description String
+}
+
+model DietPlan {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  dietJson  Json
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model LearnContent {
+  id      Int    @id @default(autoincrement())
+  sport   String
+  topic   String
+  content String
+}
+

@@ -1,0 +1,29 @@
+{
+  "name": "athlete-assist-backend",
+  "version": "1.0.0",
+  "description": "AthleteAssist MVP backend - Bun + TS + Express + Prisma + Gemini + ElevenLabs",
+  "scripts": {
+    "dev": "bun --watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "db:seed": "bun run src/prisma/seed.ts"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.11.0",
+    "@prisma/client": "^5.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.0.0",
+    "prisma": "^5.19.0",
+    "typescript": "^5.6.3"
+  }
+}
