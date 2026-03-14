@@ -12,16 +12,19 @@ interface InjuryAdviceResponse {
   precaution: string;
   recovery: string;
   cure: string;
+  recommendedYoutubeLink: string;
 }
 
 interface LearnAskResponse {
   recommendedYoutubeQuery: string;
+  recommendedYoutubeLink: string;
   careTips: string;
   precautions: string;
 }
 
 export interface DietPlanJson {
   summary: string;
+  recommendedYoutubeLink: string;
   macros: {
     calories: number;
     protein_g: number;
@@ -37,7 +40,7 @@ export interface DietPlanJson {
   };
   hydration: {
     water_liters: number;
-    electrolylytes: string;
+    electrolytes: string;
   };
   meals: {
     breakfast: {

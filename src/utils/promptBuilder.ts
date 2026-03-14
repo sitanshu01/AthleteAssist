@@ -112,7 +112,8 @@ Return JSON ONLY with this structure:
 {
   "precaution": "List of precautions as a short paragraph or bullet-like text.",
   "recovery": "Recovery tips, rehab guidelines, and when to see a doctor.",
-  "cure": "High-level treatment overview and long-term management."
+  "cure": "High-level treatment overview and long-term management.",
+  "recommendedYoutubeLink": "A single best YouTube video URL for this injury and body part."
 }
 
 Do not include any markdown, comments, or explanations. JSON only.
@@ -144,6 +145,7 @@ Return JSON ONLY with this structure:
 
 {
   "recommendedYoutubeQuery": "A concrete YouTube search query or video title/URL suggestion.",
+  "recommendedYoutubeLink": "A single best YouTube video URL for this topic.",
   "careTips": "Short paragraph of practical care tips.",
   "precautions": "Short paragraph of precautions and warnings."
 }
@@ -225,6 +227,7 @@ Return JSON ONLY with the SAME structure as before:
 
 {
   "summary": string,
+  "recommendedYoutubeLink": "A single best YouTube video URL explaining nutrition and recovery for this athlete.",
   "macros": {
     "calories": number,
     "protein_g": number,

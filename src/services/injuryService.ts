@@ -40,7 +40,8 @@ export const registerInjury = async (data: RegisterInjuryBody) => {
     data: {
       aiPrecaution: advice.precaution,
       aiRecovery: advice.recovery,
-      aiCure: advice.cure
+      aiCure: advice.cure,
+      ytLink: advice.recommendedYoutubeLink
     }
   });
 

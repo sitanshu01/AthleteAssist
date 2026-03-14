@@ -6,6 +6,9 @@ import dotenv from "dotenv";
 import injuryRoutes from "./routes/injuryRoutes";
 import learnRoutes from "./routes/learnRoutes";
 import dietRoutes from "./routes/dietRoutes";
+import ruleRoutes from "./routes/ruleRoutes";
+import exerciseRoutes from "./routes/exerciseRoutes";
+import warmupRoutes from "./routes/warmupRoutes";
 
 dotenv.config();
 
@@ -22,6 +25,9 @@ app.use(express.json({ limit: "1mb" }));
 app.use("/injuries", injuryRoutes);
 app.use("/learn", learnRoutes);
 app.use("/diets", dietRoutes);
+app.use("/rules", ruleRoutes);
+app.use("/exercises", exerciseRoutes);
+app.use("/warmups", warmupRoutes);
 
 app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", service: "AthleteAssist backend" });

@@ -40,6 +40,7 @@ export const askLearnHandler = async (
       const text =
         `Here is your learning recommendation. ` +
         `Recommended YouTube search: ${aiResponse.recommendedYoutubeQuery}. ` +
+        `Recommended video link: ${aiResponse.recommendedYoutubeLink}. ` +
         `Care tips: ${aiResponse.careTips}. ` +
         `Precautions: ${aiResponse.precautions}.`;
       const voice = await generateVoiceFromText(text);

@@ -33,6 +33,7 @@ model Injury {
   aiPrecaution String?
   aiRecovery   String?
   aiCure       String?
+  ytLink       String?
   createdAt    DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id])
@@ -44,6 +45,7 @@ model Exercise {
   sports      String[]
   bodyPart    String
   description String
+  ytLink      String?
 }
 
 model Warmup {
@@ -80,5 +82,6 @@ model LearnContent {
   sport   String
   topic   String
   content String
+  ytLink  String?
 }
 
