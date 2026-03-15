@@ -6,7 +6,7 @@ import {
   buildLearnPrompt,
   DietPromptContext
 } from "../utils/promptBuilder";
-import { Injury, User } from "@prisma/client";
+import { Injury, User } from "../generated/prisma/client";
 
 interface InjuryAdviceResponse {
   precaution: string;

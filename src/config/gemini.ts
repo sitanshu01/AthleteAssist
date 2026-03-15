@@ -17,6 +17,6 @@ export const getGeminiModel = () => {
   if (!genAI) {
     throw new Error("Gemini API not initialized. Set GEMINI_API_KEY in your environment.");
   }
-  return genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  return genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 };
 

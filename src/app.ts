@@ -9,6 +9,8 @@ import dietRoutes from "./routes/dietRoutes";
 import ruleRoutes from "./routes/ruleRoutes";
 import exerciseRoutes from "./routes/exerciseRoutes";
 import warmupRoutes from "./routes/warmupRoutes";
+import authRoutes from "./routes/authRoutes";
+import voiceRoutes from "./routes/voiceRoutes";
 
 dotenv.config();
 
@@ -28,6 +30,8 @@ app.use("/diets", dietRoutes);
 app.use("/rules", ruleRoutes);
 app.use("/exercises", exerciseRoutes);
 app.use("/warmups", warmupRoutes);
+app.use("/auth", authRoutes);
+app.use("/voice-ai", voiceRoutes);
 
 app.get("/health", (_req: Request, res: Response) => {
   res.json({ status: "ok", service: "AthleteAssist backend" });

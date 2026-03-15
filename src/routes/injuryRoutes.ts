@@ -2,14 +2,19 @@ import { Router } from "express";
 import {
   getInjuriesHandler,
   registerInjuryHandler,
-  trackInjuryHandler
+  trackInjuryHandler,
+  injuryChatHandler,
 } from "../controllers/injuryController";
+import { authenticateToken } from "../middleware/auth";
 
 const router = Router();
 
-router.get("/", getInjuriesHandler);
-router.post("/register", registerInjuryHandler);
-router.put("/track", trackInjuryHandler);
+router.get("/", authenticateToken, getInjuriesHandler);
+
+router.post("/register", authenticateToken, registerInjuryHandler);
+
+router.put("/track", authenticateToken, trackInjuryHandler);
+
+router.post("/chat", authenticateToken, injuryChatHandler);
 
 export default router;
-

@@ -1,26 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model User {
-  id                         Int          @id @default(autoincrement())
+  id                         Int      @id @default(autoincrement())
   name                       String
-  email                      String       @unique
+  email                      String   @unique
+  username                   String   @unique
+  password                   String
   age                        Int
   height                     Int
   weight                     Int
   sport                      String
   levelOfProficiencyInSports String
   injuryHistory              String?
-  createdAt                  DateTime     @default(now())
+  createdAt                  DateTime @default(now())
 
-  injuries   Injury[]
-  dietPlans  DietPlan[]
+  injuries  Injury[]
+  dietPlans DietPlan[]
 }
 
 model Injury {
@@ -29,6 +36,7 @@ model Injury {
   name         String
   bodyPart     String
   severity     String
+  classification Int @default(1) // AI-predicted classification (1-4 scale)
   isActive     Boolean  @default(true)
   aiPrecaution String?
   aiRecovery   String?
@@ -62,7 +70,7 @@ enum WarmupType {
 }
 
 model Rule {
-  id          Int      @id @default(autoincrement())
+  id          Int    @id @default(autoincrement())
   sport       String
   title       String
   description String
@@ -78,10 +86,9 @@ model DietPlan {
 }
 
 model LearnContent {
-  id      Int    @id @default(autoincrement())
+  id      Int     @id @default(autoincrement())
   sport   String
   topic   String
   content String
   ytLink  String?
 }
-
